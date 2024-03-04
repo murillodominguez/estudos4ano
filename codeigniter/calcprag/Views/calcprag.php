@@ -10,8 +10,11 @@
     <header>
         <h1>Site da calculadora afuzel</h1>
     </header>
-    <div class=container>
-        <h1>calculadora afuzel!</br>
+    <div class="container">
+        <div class="head">
+            <h1>calculadora afuzel!</h1>
+            <h1><a href="calcbhask">calculadora bhaskaronica</a></h1>
+        </div>
         <form action="" method="post">
             <div class="inputAB">
                 <label for="inputA">Número A</label>
