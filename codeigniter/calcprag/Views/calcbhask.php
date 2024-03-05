@@ -69,50 +69,35 @@
             </div>
         </form>
         <?php
-            if(isset($_POST['envio'])){
-                function dataValidationInput($data){
-                    if(!isset($data) && $data == null){
-                        return false;
-                    }
-                    if(!is_numeric($data)){
-                        return false;
-                    }
-                    return true;
-                }
-                if(dataValidationInput($_POST['a']) && dataValidationInput($_POST['b'])){
-                $operator = $_POST['operator'];
+            if(isset($_POST['envio']) && isset($_POST['a'])){
                 $a = $_POST['a'];
                 $b = $_POST['b'];
-                switch($operator){
-                    case "add":
-                        $op = "+";
-                        $result = $a + $b;
-                        break;
-                    case "sub":
-                        $op = "-";
-                        $result = $a - $b;
-                        break;
-                    case "mult":
-                        $op = "x";
-                        $result = $a * $b;
-                        break;
-                    case "divide":
-                        $op = "/";
-                        $result = $a / $b;
-                        break;
-                    case "potencia":
-                        $op = "^";
-                        $result = $a ** $b;
-                        break;
+                $c = $_POST['c'];
+                if($b == ''){
+                    $b = 0;
                 }
-                echo "
+                if($c == ''){
+                    $c = 0;
+                }
                 
+                $delta = $b**2 - (4*$a*$c);
+                if($delta >= 0){
+                echo "Equação<br>".$a."x² ".$b."x ".$c."<br>";
+                echo "<br>Delta: ".$delta."<br><br>";
+                $x1 = ((-$b) + sqrt($delta))/(2*$a);
+                $x2 = ((-$b) - sqrt($delta))/(2*$a);
+                echo "
                 <div class='resultado'>
-                    <h1>O resultado de ".$a." ".$op." ".$b." é ".$result."</h1>
+                    <h1>x' = ".$x1."</h1>
+                    <br>
+                    <h1>x'' = ".$x2."</h1>
                 </div>
                 ";
+                }
+                else{
+                    echo "Delta é menor que zero.";
+                }
             }
-        }
         ?>
     </div>
 </body>
