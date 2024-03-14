@@ -91,6 +91,5 @@ def sum_lower_equal_than_n(n):
 
 n = int(input("Informe um número inteiro positivo: "))
 
-
 soma = sum_lower_equal_than_n(n)
 print(soma)
